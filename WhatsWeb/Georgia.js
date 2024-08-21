@@ -24,9 +24,7 @@ var timevb = setInterval(() => {
 
      }, 300)
 
-//     var timev3 = setInterval(() => {
-//
-//     },5000)
+
 // 封装复用
 // 提取公共的查询选择器函数
 function getCount() {
@@ -81,7 +79,9 @@ function setStyle(selector, style) {
 
 // 处理点击事件的核心函数
 function handleClickCore(e) {
- setStyle("._aigv._aigz", 'z-index: 120;position: absolute;width: 100%');
+  setStyle("._aigv._aigz", 'z-index: 120;position: absolute;width: 100%');
+  window.webkit.messageHandlers.nativeBridge.postMessage('chat');
+
 
  document.querySelectorAll("._ak1t._ak1m")[0].addEventListener('click', (e) => {
      setTimeout(() => {
@@ -96,6 +96,7 @@ function handleClickCore(e) {
  insertBackLeftDiv();
  document.getElementById("backleftid").addEventListener('click', (e) => {
      setStyle("._aigv._aigz", 'z-index: 120;position: absolute;width: 0%;');
+     window.webkit.messageHandlers.nativeBridge.postMessage('list');
  });
 
  handleFooterClick();
